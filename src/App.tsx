@@ -1,16 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { routeTree } from './routeTree.gen';
 import './App.css'
+import { createRouter, RouterProvider } from '@tanstack/react-router'
+
+const router = createRouter({ routeTree });
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      App works
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
 export default App
