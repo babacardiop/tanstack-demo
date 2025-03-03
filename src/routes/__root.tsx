@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
 
 
@@ -27,6 +26,11 @@ function RootComponent() {
         <li>
           <Link to="/pokemon" activeProps={activeProps}>
           Pokemons
+          </Link>
+        </li>
+        <li>
+          <Link to="/search" activeProps={activeProps} search={{hasDiscount: true}}>
+          Search
           </Link>
         </li>
       </ul>
