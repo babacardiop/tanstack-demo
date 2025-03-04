@@ -1,12 +1,17 @@
-import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
-
+import { Link, Outlet, createRootRouteWithContext } from "@tanstack/react-router";
+import { AuthContext } from "../hooks/auth";
 
 const activeProps = {
     style: {
         fontWeight: "bold",
     },
 };
-export const Route = createRootRoute({
+
+type RouterContext = {
+authentification: AuthContext
+};
+
+export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootComponent,
 });
 
@@ -29,8 +34,23 @@ function RootComponent() {
           </Link>
         </li>
         <li>
-          <Link to="/search" activeProps={activeProps} search={{hasDiscount: true}}>
+          <Link to="/search" activeProps={activeProps} search={{hasDiscount: false}}>
           Search
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+          Login
+          </Link>
+        </li>
+        <li>
+          <Link to="/dashboard">
+          Dashboard
+          </Link>
+        </li>
+        <li>
+          <Link to="/settings">
+          Settings
           </Link>
         </li>
       </ul>
