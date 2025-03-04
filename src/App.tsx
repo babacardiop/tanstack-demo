@@ -6,6 +6,7 @@ import { useAuth } from "./hooks/auth";
 const router = createRouter({
   routeTree,
   context: { authentification: undefined! },
+  defaultNotFoundComponent: () => <div>Global Not Found !</div>,
 });
 
 declare module "@tanstack/react-router" {

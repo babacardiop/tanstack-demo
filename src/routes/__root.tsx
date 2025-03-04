@@ -53,6 +53,16 @@ function RootComponent() {
           Settings
           </Link>
         </li>
+        <li>
+          <Link to="/first-level">
+          First Level
+          </Link>
+        </li>
+        <li>
+          <Link to="/layouts/visibleLayout">
+          Layouts
+          </Link>
+        </li>
       </ul>
       <Outlet />
     </>
